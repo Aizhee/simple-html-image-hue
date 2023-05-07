@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Color Survey</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>CpE Days Jersey Color Survey</h1>
+        <h2 id="hue-value">Hue: 0°</h2>
+        <input type="range" min="0" max="360" value="0" id="hue-slider">
+        <button id="prevButton">Previous</button>
+        <button id="nextButton">Next</button>
+        <div></div>
+        <div class="image-container">
+            <img src="jersey1.png" id="jersey-image">
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        window.onload = function() {
+            const hueSlider = document.getElementById('hue-slider');
+            const hueValue = document.getElementById('hue-value');
+            const jerseyImage = document.getElementById('jersey-image');
+
+            // Update hue value display when the slider value changes
+            hueSlider.addEventListener('input', function() {
+                const hue = this.value;
+                hueValue.textContent = `Hue: ${hue}°`;
+
+                jerseyImage.style.filter = `hue-rotate(${hue}deg)`;
+
+            });
+        }
+    </script>
+</body>
+</html>
